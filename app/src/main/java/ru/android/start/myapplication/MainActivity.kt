@@ -6,9 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var myObserver: MyObserver
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        myObserver = MyObserver()
+        lifecycle.addObserver(myObserver)
     }
 
     private fun toastMeState(message: String) {
